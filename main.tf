@@ -29,6 +29,13 @@ resource "aws_security_group" "terraform_private_sg" {
     from_port   = 22
     to_port     = 22
   }
+    
+    ingress {
+    protocol    = "icmp"
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+  }
 
   ingress {
     protocol    = "tcp"
